@@ -20,7 +20,7 @@
 
 FROM debian:buster-slim
 LABEL name="lighthouse" \
-  maintainer="Justin Ribeiro <justin@justinribeiro.com>" \
+  maintainer="Forked from - Justin Ribeiro <justin@justinribeiro.com>" \
   version="3.0" \
   description="Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices."
 
@@ -64,4 +64,4 @@ WORKDIR /home/chrome/reports
 USER chrome
 
 # Drop to cli
-CMD ["/bin/bash"]
+CMD ["lighthouse --chrome-flags=\"--headless --disable-gpu\" http://host.docker.internal:4000"]
